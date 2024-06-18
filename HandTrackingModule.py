@@ -5,6 +5,10 @@ import time
 
 class handDetector():
     def __init__(self, mode=False, maxHands=2, detectionCon=0.5, trackCon=0.5):
+    # mode: Determines if the model is static or dynamic. Default is False (dynamic).
+    # maxHands: Maximum number of hands to detect. Default is 2.
+    # detectionCon: Minimum confidence for initial hand detection. Default is 0.5.
+    # trackCon: Minimum confidence for hand tracking. Default is 0.5.
         self.mode = mode
         self.maxHands = maxHands
         self.detectionCon = detectionCon
@@ -16,7 +20,8 @@ class handDetector():
                                         min_tracking_confidence=self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
 
-    def findHands(self, img, draw=True):
+    def findHands(self, img, draw=True): 
+    # Converts the image to RGB, processes it to find hand landmarks, and optionally draws them on the image.
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.hands.process(imgRGB)
         # print(results.multi_hand_landmarks)
@@ -29,7 +34,7 @@ class handDetector():
         return img
 
     def findPosition(self, img, handNo=0, draw=True,point=0):
-
+    # Retrieves and optionally draws the positions of landmarks for a specified hand and landmark index.
         lmList = []
         if self.results.multi_hand_landmarks:
             myHand = self.results.multi_hand_landmarks[handNo]
@@ -46,6 +51,7 @@ class handDetector():
 
 
 def main():
+#Captures video from the webcam, processes each frame to detect hands and landmarks, and displays the video with FPS.
     pTime = 0
     cTime = 0
     cap = cv2.VideoCapture(0)
