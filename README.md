@@ -17,6 +17,11 @@ Welcome to the **Hand Tracking System** project! This project leverages the powe
 - Watch as the system detects and tracks your hand movements.
 - Press 'q' to exit the application.
 
+## Documentation
+For more details on the libraries used in this project, refer to their official documentation:
+[OpenCV Documentation](https://docs.opencv.org/4.x/index.html)
+[MediaPipe Documentation](https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker/python)
+
 ## Team Members 👥
 - [Akhila Prabodha](https://github.com/akhilaprabodha)
 - [Navini Jagoda](https://github.com/Navini11)
